@@ -2,8 +2,8 @@ package models;
 
 public class Board {
     private char boardFillings[][];
-    public int boardWidth;
-    public int boardHeight;
+    private int boardWidth;
+    private int boardHeight;
 
 
     public Board(){
