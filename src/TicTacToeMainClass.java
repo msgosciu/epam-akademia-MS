@@ -1,4 +1,5 @@
 import models.*;
+import controllers.*;
 
 public class TicTacToeMainClass {
     TicTacToeMainClass(){
@@ -10,12 +11,12 @@ public class TicTacToeMainClass {
 
     public static void main(String [ ] args)
     {
-        Board board1 = new Board();
+        Player player1 = new Player();
+        Player player2 = new Player();
 
-        board1.SetBoardFilling(0,0,'X');
-        board1.SetBoardFilling(0,1,'X');
-        board1.SetBoardFilling(0,2,'X');
-        board1.SetBoardFilling(1,1,'X');
-        board1.GetBoardFilligs();
+        GameController game1 = new GameController();
+        game1.GameStart(player1, player2);
+
+
     }
 }
