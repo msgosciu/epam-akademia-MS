@@ -48,9 +48,11 @@ public class GameController {
                     board.GetBoardFilling(i,0) != 0){
                 if(board.GetBoardFilling(i,0) == 'X'){
                     winner = player1;
+                    player1.IncreaseWins();
                     System.out.println("Congratz for " + player1.GetName() + " \n");
                 }else {
                     winner = player2;
+                    player2.IncreaseWins();
                     System.out.println("Congratz for " + player2.GetName() + " \n");
                 }
                 return true;
