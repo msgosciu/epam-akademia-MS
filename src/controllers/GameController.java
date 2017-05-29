@@ -19,8 +19,12 @@ public class GameController {
             System.out.println("Player: " +player1.GetName() +" using Coordinates X and then Y choose where to put X \n");
             int i,j;
             do{
-                j = reader.nextInt();
-                i = reader.nextInt();
+                do {
+                    System.out.println(player1.GetName() +" Give proper X value 0-2 \n");
+                    j = reader.nextInt();
+                    System.out.println(player1.GetName() +" Give proper Y value 0-2 \n");
+                    i = reader.nextInt();
+                }while(i > 2 || i < 0 || j >2 || j < 0);
             }while(board1.GetBoardFilling(i, j) == 'X' ||  board1.GetBoardFilling(i, j) == 'O');
                 board1.SetBoardFilling(i, j, 'X');
 
@@ -28,8 +32,12 @@ public class GameController {
 
             System.out.println("Player: " +player2.GetName() +" using Coordinates X and then Y choose where to put O \n");
             do{
-                j = reader.nextInt();
-                i = reader.nextInt();
+                do {
+                    System.out.println(player2.GetName() +" Give proper X value 0-2 \n");
+                    j = reader.nextInt();
+                    System.out.println(player2.GetName() +" Give proper Y value 0-2 \n");
+                    i = reader.nextInt();
+                }while(i > 2 || i < 0 || j >2 || j < 0);
             }while(board1.GetBoardFilling(i, j) == 'X' ||  board1.GetBoardFilling(i, j) == 'O');
             board1.SetBoardFilling(i, j, 'O');
 
