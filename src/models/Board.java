@@ -20,9 +20,10 @@ public class Board {
         return boardHeight;
     }
     public void GetBoardFilligs(){
-        System.out.print("|\t" + boardFillings[0][0] + "\t|\t" + boardFillings[0][1] + "\t|\t" + boardFillings[0][2] + "\t|\n");
-        System.out.print("|\t" + boardFillings[1][0] + "\t|\t" + boardFillings[1][1] + "\t|\t" + boardFillings[1][2] + "\t|\n");
-        System.out.print("|\t" + boardFillings[2][0] + "\t|\t" + boardFillings[2][1] + "\t|\t" + boardFillings[2][2] + "\t|\n");
+        System.out.print("Y/X|\t" + 0 + "\t|\t" + 1 + "\t|\t" + 2 + "\t|\n");
+        System.out.print("0  |\t" + boardFillings[0][0] + "\t|\t" + boardFillings[0][1] + "\t|\t" + boardFillings[0][2] + "\t|\n");
+        System.out.print("1  |\t" + boardFillings[1][0] + "\t|\t" + boardFillings[1][1] + "\t|\t" + boardFillings[1][2] + "\t|\n");
+        System.out.print("2  |\t" + boardFillings[2][0] + "\t|\t" + boardFillings[2][1] + "\t|\t" + boardFillings[2][2] + "\t|\n");
     }
 
     public char GetBoardFilling(int i, int j){

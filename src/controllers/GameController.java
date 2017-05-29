@@ -13,9 +13,9 @@ public class GameController {
         Scanner reader = new Scanner(System.in);
         board1 = new Board();
         board1.GetBoardFilligs();
+
         while(winner==null)
         {
-
             System.out.println("Player: " +player1.GetName() +" using Coordinates X and then Y choose where to put X \n");
             int i,j;
             do{
@@ -30,6 +30,10 @@ public class GameController {
 
             board1.GetBoardFilligs();
 
+            if(IsFull(board1)){
+                System.out.println("This game finishes at draw. Good luck next time. \n");
+                break;
+            }
             System.out.println("Player: " +player2.GetName() +" using Coordinates X and then Y choose where to put O \n");
             do{
                 do {
@@ -41,15 +45,16 @@ public class GameController {
             }while(board1.GetBoardFilling(i, j) == 'X' ||  board1.GetBoardFilling(i, j) == 'O');
             board1.SetBoardFilling(i, j, 'O');
 
+            if(IsFull(board1)){
+                System.out.println("This game finishes at draw. Good luck next time. \n");
+                break;
+            }
             board1.GetBoardFilligs();
-            isWon(board1,player1,player2);
+            IsWon(board1,player1,player2);
         }
-
-
-
     }
 
-    public boolean isWon(Board board, Player player1, Player player2){
+    public void IsWon(Board board, Player player1, Player player2){
         for(int i=0; i<board.GetBoardWidth(); i++){
             if(board.GetBoardFilling(i,0) == board.GetBoardFilling(i,1) &&
                     board.GetBoardFilling(i,0) == board.GetBoardFilling(i,2) &&
@@ -63,7 +68,6 @@ public class GameController {
                     player2.IncreaseWins();
                     System.out.println("Congratz for " + player2.GetName() + " \n");
                 }
-                return true;
             }else if(board.GetBoardFilling(0,i) == board.GetBoardFilling(1,i) &&
                     board.GetBoardFilling(0,i) == board.GetBoardFilling(2,i) &&
                     board.GetBoardFilling(0,i) != 0){
@@ -76,7 +80,6 @@ public class GameController {
                     player2.IncreaseWins();
                     System.out.println("Congratz for " + player2.GetName() + " \n");
                 }
-                return true;
             }else if(board.GetBoardFilling(0,0) == board.GetBoardFilling(1,1) &&
                     board.GetBoardFilling(0,0) == board.GetBoardFilling(2,2) &&
                     board.GetBoardFilling(0,0) != 0){
@@ -89,7 +92,6 @@ public class GameController {
                     player2.IncreaseWins();
                     System.out.println("Congratz for " + player2.GetName() + " \n");
                 }
-                return true;
             }else if(board.GetBoardFilling(0,2) == board.GetBoardFilling(2,0) &&
                     board.GetBoardFilling(0,2) == board.GetBoardFilling(1,1) &&
                     board.GetBoardFilling(0,2) != 0){
@@ -102,12 +104,18 @@ public class GameController {
                     player2.IncreaseWins();
                     System.out.println("Congratz for " + player2.GetName() + " \n");
                 }
-                return true;
             }
         }
-        return false;
     }
 
+    public boolean IsFull(Board board){
+        for(int i = 0; i<3; i++){
+            for(int j = 0; j<3; j++){
+                if(board.GetBoardFilling(i,j)==0) return false;
+            }
+        }
+        return true;
+    }
 
     public Player WhoFirst(Player player1, Player player2){
         Scanner scanner = new Scanner(System.in);
